@@ -1,15 +1,12 @@
 <template>
   <div id="app">
-  
-    <MyJumbotron/>
-    
-    
+    <MyJumbotron v-bind:list="list" />
   </div>
 </template>
 
 
 <script>
-import MyJumbotron from './components/MyJumbotron.vue'
+import MyJumbotron from "./components/MyJumbotron.vue";
 
 //  - Then you will pass it to the MyJumbotron component as a Props.
 
@@ -21,36 +18,21 @@ import MyJumbotron from './components/MyJumbotron.vue'
 // // SingleTodo component for each item of the List to looks like the picture below
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    MyJumbotron,
-    
-
-    
+    MyJumbotron
   },
-  data () {
-      return {
+  data() {
+    return {
       list: [
-        {id: 0, name: "Ecrire le sujet", todo: true},
-        {id: 1, name: "Faire le sujet", todo: true},
-        {id: 2, name: "Vendre le sujet", todo: true},
-        {id: 3, name: "Partir en vaccances", todo: true}
-
+        { id: 0, name: "Ecrire le sujet", todo: true },
+        { id: 1, name: "Faire le sujet", todo: true },
+        { id: 2, name: "Vendre le sujet", todo: true },
+        { id: 3, name: "Partir en vaccances", todo: true }
       ]
-      }
-
-    
-    
-    
+    };
   }
-  
-  
-}
-
-
-
-
-
+};
 </script>
 
 <style>
