@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import SingleTodo from "./components/SingleTodo.vue";
+import SingleTodo from "./SingleTodo.vue";
 
 export default {
   name: "ListTodo",

@@ -5,12 +5,12 @@
     <hr class="my-4" />
     <p>Easy to use, we created this web app just for you</p>
     <p class="lead"></p>
-    <!-- <li v-bind="ListTodo"></li> -->
+    <!-- <li>{{ListTodo}}</li> -->
   </div>
 </template>
 
 <script>
-// import ListTodo from "./components/ListTodo.vue";
+// import ListTodo from "./ListTodo.vue";
 
 export default {
   name: "MyJumbotron"
