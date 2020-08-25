@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MyJumbotron v-bind:list="list" />
+    <MyJumbotron :list="list" />
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   components: {
     MyJumbotron
   },
-  data() {
+  data :() => {
     return {
       list: [
         { id: 0, name: "Ecrire le sujet", todo: true },

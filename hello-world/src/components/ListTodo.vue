@@ -1,17 +1,19 @@
 <template>
   <div>
     <h1>Vue Top Artists by Country</h1>
-    <ul>
-      <li v-for="(SingleTodos, x) in SingleTodo" :key="x">{{x.name}}</li>
-      <ListTodo />
-    </ul>
+        
+      
+      <SingleTodo v-for="li in count" v-bind:key="li.id" :test='li'/>
+
   </div>
 </template>
 <script>
-import SingleTodo from "./SingleTodo.vue";
+import SingleTodo from "./SingleTodo.vue"
 
 export default {
   name: "ListTodo",
-  props: ["SingleTodo"]
+  components : {SingleTodo},
+  props: ["count"]
+
 };
 </script>

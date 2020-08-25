@@ -5,16 +5,20 @@
     <hr class="my-4" />
     <p>Easy to use, we created this web app just for you</p>
     <p class="lead"></p>
-    <!-- <li>{{ListTodo}}</li> -->
+    <ListTodo :count='list' />
+  
+
+
   </div>
 </template>
 
 <script>
-// import ListTodo from "./ListTodo.vue";
+import ListTodo from "./ListTodo.vue";
 
 export default {
-  name: "MyJumbotron"
-  // props: ["ListTodo"]
+  name: "MyJumbotron",
+  components : {ListTodo},
+  props: ['list'] 
 };
 </script>
 
@@ -43,29 +47,3 @@ a {
 
 
 
-
-
-<script>
-// export default {
-//   name: 'Test',
-//   data() {
-//      posts: [
-//       { id: 1, title: 'Todo List' },
-//       { id: 2, title: 'New Features we will have to done for this project'},
-//       { id: 3, title: 'Easy to use, we created this web app just for you !'}
-//     ]
-
-//       }
-// }
-
-// new Vue({
-//   el: 'Test',
-//   data: {
-//     posts: [
-//       { id: 1, title: 'Todo List' },
-//       { id: 2, title: 'New Features we will have to done for this project'},
-//       { id: 3, title: 'Easy to use, we created this web app just for you !'}
-//     ]
-//   }
-// })
-</script>
