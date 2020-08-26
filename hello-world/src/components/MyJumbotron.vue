@@ -1,24 +1,42 @@
 <template>
-  <div class="jumbotron">
-    <h1 class="display-4">Todo List</h1>
-    <p class="lead">New Features we will have to done for this project</p>
-    <hr class="my-4" />
-    <p>Easy to use, we created this web app just for you</p>
-    <p class="lead"></p>
-    <ListTodo :count='list' />
-  
+  <b-jumbotron>
+    <template v-slot:header>Todo List</template>
 
+    <template v-slot:lead>
+      New Features we will have to done for this project
+    </template>
 
-  </div>
+    <hr class="my-4">
+
+    <p>
+      Easy to use, we created this web app just for you
+    </p>
+
+    <ListTodo :count='list' v-on:changeicon ='test2'/>
+    <AddForm v-on:lol='task' />
+
+    <!-- <b-button variant="primary" href="#">Do Something</b-button>
+    <b-button variant="success" href="#">Do Something Else</b-button> -->
+  </b-jumbotron>
 </template>
 
 <script>
 import ListTodo from "./ListTodo.vue";
+import AddForm from "./AddForm.vue";
 
 export default {
   name: "MyJumbotron",
-  components : {ListTodo},
-  props: ['list'] 
+  components : {ListTodo, AddForm},
+  props: ['list'],
+   methods: {
+    test2: function(id) {
+      this.$emit('changeicon', id)
+    },
+    task(champ){
+      this.$emit('mdr', champ)
+    }
+
+  }
 };
 </script>
 

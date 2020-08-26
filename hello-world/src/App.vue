@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <MyJumbotron :list="list" />
+    <MyJumbotron :list="list" v-on:changeicon='test3' v-on:task='task' v-model='champ'/>
   </div>
 </template>
 
 
 <script>
 import MyJumbotron from "./components/MyJumbotron.vue";
+
+
 
 //  - Then you will pass it to the MyJumbotron component as a Props.
 
@@ -31,6 +33,20 @@ export default {
         { id: 3, name: "Partir en vaccances", todo: true }
       ]
     };
+  },
+  methods: {
+    test3: function(id) {
+      console.log(id);
+      this.list.forEach(element =>{
+        if(element.id == id && element.todo == true ){
+          element.todo = false
+        }else 
+          element.todo = true
+        
+        
+      })
+      
+    }
   }
 };
 </script>
@@ -43,5 +59,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#aa{
+  display : none
 }
 </style>
