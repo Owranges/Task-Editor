@@ -1,7 +1,7 @@
 <template>
 
-    <li v-if ="test.todo == true" class="nopoint"  v-on:click='$emit("changeicon",test.id)'>   <b-icon icon='check-circle'>a</b-icon>   {{test.name}}</li>
-    <li v-else  class="nopoint teston" v-on:click='$emit("changeicon",test.id)'>  <b-icon icon='check-circle-fill'></b-icon>   {{test.name}}</li>
+    <li v-if ="test.todo == true" class="nopoint"  v-on:click='$emit("changeicon",test.id)'>   <b-icon icon='check-circle'></b-icon>   {{test.name}}</li>
+    <li v-else-if="test.todo == false" class="nopoint teston" v-on:click='$emit("changeicon",test.id)'>  <b-icon icon='check-circle-fill'></b-icon>   {{test.name}}</li>
     
 </template>
 <script>

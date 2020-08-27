@@ -11,9 +11,11 @@
     <p>
       Easy to use, we created this web app just for you
     </p>
+     <Sentence :list='list'/>
 
     <ListTodo :count='list' v-on:changeicon ='test2'/>
-    <AddForm v-on:lol='task' />
+    
+    <AddForm v-on:mdr='task' />
 
     <!-- <b-button variant="primary" href="#">Do Something</b-button>
     <b-button variant="success" href="#">Do Something Else</b-button> -->
@@ -23,16 +25,18 @@
 <script>
 import ListTodo from "./ListTodo.vue";
 import AddForm from "./AddForm.vue";
+import Sentence from "./Sentence.vue";
 
 export default {
   name: "MyJumbotron",
-  components : {ListTodo, AddForm},
+  components : {ListTodo, AddForm, Sentence},
   props: ['list'],
    methods: {
     test2: function(id) {
       this.$emit('changeicon', id)
     },
-    task(champ){
+    task: function(champ){
+      
       this.$emit('mdr', champ)
     }
 
