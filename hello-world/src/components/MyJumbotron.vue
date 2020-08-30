@@ -1,5 +1,12 @@
 <template>
+<div>
+  
+       <MyHeader />
+    
   <b-jumbotron>
+    
+   
+  
     <template v-slot:header>Todo List</template>
 
     <template v-slot:lead>
@@ -11,27 +18,33 @@
     <p>
       Easy to use, we created this web app just for you
     </p>
-     <Sentence :list='list'/>
-
+     <router-view/>
+     <!-- <Sentence :list='list'/>
+   
     <ListTodo :count='list' v-on:changeicon ='test2'/>
     
-    <AddForm v-on:mdr='task' />
+    <AddForm v-on:mdr='task' /> -->
 
     <!-- <b-button variant="primary" href="#">Do Something</b-button>
     <b-button variant="success" href="#">Do Something Else</b-button> -->
   </b-jumbotron>
+</div>
 </template>
 
 <script>
-import ListTodo from "./ListTodo.vue";
-import AddForm from "./AddForm.vue";
-import Sentence from "./Sentence.vue";
+import MyHeader from "./MyHeader.vue"
+// import ListTodo from "./ListTodo.vue";
+// import AddForm from "./AddForm.vue";
+// import Sentence from "./Sentence.vue";
 
 export default {
   name: "MyJumbotron",
-  components : {ListTodo, AddForm, Sentence},
+  components : { MyHeader},
   props: ['list'],
+
+  
    methods: {
+     
     test2: function(id) {
       this.$emit('changeicon', id)
     },
