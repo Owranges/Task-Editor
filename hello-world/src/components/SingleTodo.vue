@@ -1,13 +1,29 @@
 <template>
 
-    <li v-if ="test.todo == true" class="nopoint"  v-on:click='$emit("changeicon",test.id)'>   <b-icon icon='check-circle'></b-icon>   {{test.name}}</li>
-    <li v-else-if="test.todo == false" class="nopoint teston" v-on:click='$emit("changeicon",test.id)'>  <b-icon icon='check-circle-fill'></b-icon>   {{test.name}}</li>
+    <li v-if ="test.todo == true" class="nopoint"  v-on:click="click(test.id)" >   <b-icon icon='check-circle'></b-icon>   {{test.name}}</li>
+    <li v-else-if="test.todo == false" class="nopoint teston"  v-on:click="click(test.id)">  <b-icon icon='check-circle-fill'></b-icon>   {{test.name}}</li>
     
 </template>
 <script>
 export default {
   name: "SingleTodo",
-  props: ['test']
+  props: ['test'],
+  data(){
+    return {
+      todoByID : ''
+    }
+  },
+  methods: {
+    async click(id) {
+      try {
+      await this.axios.put(`http://localhost:8081/todo/+${id}`)
+      this.$emit("received")
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 };
 
 </script>

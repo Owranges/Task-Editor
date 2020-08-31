@@ -1,26 +1,18 @@
 <template>
 <div>
-  
-       <MyHeader />
-    
-  <b-jumbotron>
-    
-   
-  
-    <template v-slot:header>Todo List</template>
-
+         <MyHeader />
+    <b-jumbotron>
+          <template v-slot:header>Todo List</template>
     <template v-slot:lead>
       New Features we will have to done for this project
     </template>
-
     <hr class="my-4">
-
     <p>
       Easy to use, we created this web app just for you
     </p>
-     <router-view/>
+     <router-view :key="$route.path"/>
      <!-- <Sentence :list='list'/>
-   
+
     <ListTodo :count='list' v-on:changeicon ='test2'/>
     
     <AddForm v-on:mdr='task' /> -->

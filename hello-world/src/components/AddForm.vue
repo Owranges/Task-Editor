@@ -21,21 +21,16 @@ export default {
   data() {
     return {
       champ: "",
-     
     };
   },
   methods: {
     fetchData:  function() {
-       this.axios.post('http://localhost:8080/todo', {
+       this.axios.post('http://localhost:8081/todo', {
           name: this.champ,
-          id: (Math.random * Math.random),
-          createdAt : "22/07",
+          id: Date.now(),
+          createdAt : String(new Date),
           todo: true
         }),
-              
-              
-              
-      
       this.champ = "";
     },
     keymonitor: function(event) {

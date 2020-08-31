@@ -1,7 +1,7 @@
 <template>
   <ul>
     
-      <SingleTodo v-for="li in listOfTodo" v-bind:key="li.id" :test='li' v-on:changeicon='test'/>
+      <SingleTodo v-for="li in listOfTodo" v-bind:key="li.id" :test='li' v-on:received="todo"/>
       
  </ul>
 </template>
@@ -11,9 +11,9 @@ import SingleTodo from "./SingleTodo.vue"
 export default {
   name: "ListTodo",
   components : {SingleTodo},
-  props: ["count"],
-  mounted(){
-    this.$nextTick(this.todo())
+  props: ["whatToDisplay"],
+  async mounted(){
+    await this.todo()
   },
   data()  {
     return {
@@ -22,22 +22,25 @@ export default {
     }
   },
   methods: {
-    test: function(id) {
-      this.$emit('changeicon', id)
-    },
-    todo(){
-      console.log('aa');
-      this.axios.get('http://localhost:8080/todo')
-      .then(response => {
-        console.log('aa');
-        console.log(response.data);
-        this.listOfTodo = response.data;
-        console.log(this.listOfTodo);
-        return this.listOfTodo
-      });
-
+    async todo(){
+      try {
+        let getTodo = await this.axios.get('http://localhost:8081/todo')
+        this.listOfTodo = getTodo.data;
+        console.log( getTodo);
+        if(this.whatToDisplay == "done"){
+          let todoFalse =  this.listOfTodo.filter(e => e.todo == false)
+          this.listOfTodo = todoFalse
+        }else if (this.whatToDisplay == "todo"){
+          let todoTrue = this.listOfTodo.filter(e => e.todo == true)
+          this.listOfTodo = todoTrue
+        }
+        
+      } catch (error) {
+        console.log(error);
+      }
+      
+      
     }
-    
   }
 };
 </script>

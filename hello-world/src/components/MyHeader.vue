@@ -1,16 +1,14 @@
 <template>
 <header>
+  
   <b-navbar type="dark" variant="dark">
+    
     <b-navbar-nav>
-      <b-nav-item >
-    <router-link to="/new">Home</router-link>
-    <router-link to="/List">List</router-link>
-    </b-nav-item>
-      <b-nav-item text="New" right/>
-      <b-nav-item text="ToDo" right/>
-      <b-nav-item text="Done" right/>
-      <b-nav-item text="List" right/>
-   
+      <p class="alink">ToDo List</p>
+    <router-link class="alink" to="/new">Home</router-link>
+    <router-link class="alink" to="/list">List</router-link>
+    <router-link class="alink" to="/done">Done</router-link>
+    <router-link class="alink" to="/todo">Todo</router-link>
     </b-navbar-nav>
   </b-navbar>
   
@@ -24,5 +22,8 @@ export default {
 </script>
 
 <style>
+.alink{
+  margin-right: 5%;
 
+}
 </style>
