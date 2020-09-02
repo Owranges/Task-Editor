@@ -24,19 +24,35 @@ export default {
     };
   },
   methods: {
-    fetchData:  function() {
-       this.axios.post('http://localhost:8081/todo', {
+    fetchData() {
+      console.log(this.champ);
+      if(this.champ.length == ""){
+        
+        window.alert('Please enter a task')
+      }else {
+      
+        let todoPost = {
           name: this.champ,
           id: Date.now(),
           createdAt : String(new Date),
           todo: true
-        }),
-      this.champ = "";
+        }
+        
+        this.axios.post('http://localhost:8081/todo',  todoPost)
+        .then(response => {
+          this.$store.dispatch('Post', response.data)
+          } 
+        )
+        .catch();
+        this.champ = "";
+
+      }
     },
     keymonitor: function(event) {
       console.log(event.key);
+      event.preventDefault()
       if (event.key == "Enter") {
-        this.fetchData();
+        this.fetchData(event);
       }
     }
    

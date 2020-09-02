@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MyJumbotron :list="list" v-on:changeicon='test3' v-on:mdr='task' />
+    <MyJumbotron  v-on:changeicon='test3' v-on:mdr='task' />
   </div>
 </template>
 
@@ -13,17 +13,18 @@ export default {
   components: {
     MyJumbotron
   },
-  data :() => {
-    return {
-      list: [
-        { id: 0, name: "Ecrire le sujet", todo: true },
-        { id: 1, name: "Faire le sujet", todo: true },
-        { id: 2, name: "Vendre le sujet", todo: true },
-        { id: 3, name: "Partir en vaccances", todo: true }
-      ],      
-    };
+  async mounted(){
+    await this.getForStore()
   },
   methods: {
+     async getForStore()  {
+      let todo =  await this.axios.get("http://localhost:8081/todo")
+      console.log(todo.data);
+      for (const ele of todo.data) {
+        this.$store.dispatch("Add", ele)
+      }
+      
+    },
     test3: function(id) {
    
       this.list.forEach(element =>{

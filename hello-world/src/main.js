@@ -10,6 +10,7 @@ Vue.use(VueRouter)
 
 import AddForm from "./components/AddForm.vue";
 import ListTodo from "./components/ListTodo.vue";
+import store from './store'
 
 const routes = [
    { path: '/new', component: AddForm },
@@ -27,5 +28,6 @@ const router = new VueRouter({
 })
 
 new Vue({
-  render: h => h(App), router
+  store: store,
+  render: h => h(App), router 
 }).$mount('#app')

@@ -17,8 +17,8 @@ export default {
     async click(id) {
       try {
       await this.axios.put(`http://localhost:8081/todo/+${id}`)
-      this.$emit("received")
-        
+      // this.$emit("received")
+      this.$store.dispatch("Swap", id)
       } catch (error) {
         console.log(error);
       }
