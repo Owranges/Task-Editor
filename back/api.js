@@ -58,7 +58,7 @@ app.put("/todo/:id", async (req,res)=>{
 app.delete("/todo/:id", async (req,res)=>{
     try {
         await ListTodo.deleteOne({id:req.params.id})
-        res.statut(500).send('is k')
+        res.send('is k')
     } catch (error) {
         console.log(error);
         
