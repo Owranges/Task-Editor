@@ -19,12 +19,11 @@ export default {
   methods: {
      async getForStore()  {
       let todo =  await this.axios.get("http://localhost:8081/todo")
-      console.log(todo.data);
-      for (const ele of todo.data) {
-        this.$store.dispatch("Add", ele)
-      }
       
-    },
+        this.$store.dispatch("Add", todo.data)
+      
+      
+     },
     test3: function(id) {
    
       this.list.forEach(element =>{

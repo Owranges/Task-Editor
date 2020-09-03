@@ -37,10 +37,11 @@ export default {
           createdAt : String(new Date),
           todo: true
         }
-        
+        console.log(todoPost);
         this.axios.post('http://localhost:8081/todo',  todoPost)
-        .then(response => {
-          this.$store.dispatch('Post', response.data)
+        .then(() => {
+          this.$store.dispatch('Post', todoPost)
+         
           } 
         )
         .catch();

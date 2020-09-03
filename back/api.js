@@ -49,10 +49,22 @@ app.get("/todo/:id", async (req,res)=>{
 })
 
 app.put("/todo/:id", async (req,res)=>{
-    let todoID = await ListTodo.findOne({id: req.params.id});
-    await ListTodo.updateOne({id:req.params.id},{$set:{todo:!todoID.todo}})
-    res.json(todoID)
+    ListTodo.updateOne({id:req.params.id},{$set:{todo:req.body.todo}}, (err, data) => {
+        if (err) res.statut(500).json(err)
+        else res.json(data)
+    })
+})
+
+app.delete("/todo/:id", async (req,res)=>{
+    try {
+        await ListTodo.deleteOne({id:req.params.id})
+        res.statut(500).send('is k')
+    } catch (error) {
+        console.log(error);
+        
+    }
     
+
 })
 
 app.listen(port, () => {
