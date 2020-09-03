@@ -16,8 +16,6 @@ export default {
   methods: {
     async click(id) {
       try {
-        console.log(id);
-        
         await this.axios.put(`http://localhost:8081/todo/${id}`, {todo: !this.test.todo})
         this.$store.dispatch("Swap", id)
       } catch (error) {
@@ -25,7 +23,6 @@ export default {
       }
     },
      supr(id) {
-        console.log(id);
         this.axios.delete(`http://localhost:8081/todo/${id}`)
         this.$store.dispatch("Supr", id)
       

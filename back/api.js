@@ -63,8 +63,6 @@ app.delete("/todo/:id", async (req,res)=>{
         console.log(error);
         
     }
-    
-
 })
 
 app.listen(port, () => {

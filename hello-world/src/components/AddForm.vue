@@ -17,7 +17,6 @@
 
 export default {
   name: "AddForm",
- 
   data() {
     return {
       champ: "",
@@ -27,10 +26,8 @@ export default {
     fetchData() {
       console.log(this.champ);
       if(this.champ.length == ""){
-        
         window.alert('Please enter a task')
       }else {
-      
         let todoPost = {
           name: this.champ,
           id: Date.now(),
@@ -41,12 +38,10 @@ export default {
         this.axios.post('http://localhost:8081/todo',  todoPost)
         .then(() => {
           this.$store.dispatch('Post', todoPost)
-         
           } 
         )
         .catch();
         this.champ = "";
-
       }
     },
     keymonitor: function(event) {
@@ -56,7 +51,6 @@ export default {
         this.fetchData(event);
       }
     }
-   
   }
 }
 </script>

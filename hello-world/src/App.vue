@@ -18,11 +18,8 @@ export default {
   },
   methods: {
      async getForStore()  {
-      let todo =  await this.axios.get("http://localhost:8081/todo")
-      
+        let todo =  await this.axios.get("http://localhost:8081/todo")
         this.$store.dispatch("Add", todo.data)
-      
-      
      },
     test3: function(id) {
    

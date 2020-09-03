@@ -1,8 +1,6 @@
 <template>
   <ul>
-    
       <SingleTodo v-for="li in RenderByPath" v-bind:key="li.id" :test='li' />
-      
  </ul>
 </template>
 <script>
@@ -22,14 +20,13 @@ export default {
   },
   computed: {
     RenderByPath () {
-      console.log(' je suis dans le computedd');
-    return this.$store.getters.RenderByPath(this.whatToDisplay)
+      return this.$store.getters.RenderByPath(this.whatToDisplay)
     }
   },
-  mounted(){
+  // mounted(){
     
-  },
-  
+  // },
+  // methods: {
 
     // async todo(){
     //   try {
@@ -50,6 +47,7 @@ export default {
       
       
     // }
+//   }
   
 };
 </script>

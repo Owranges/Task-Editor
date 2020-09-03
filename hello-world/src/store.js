@@ -14,7 +14,6 @@ export default new Vuex.Store ({
     mutations: {
         ALL_TODO: (state, todo) =>{
             state.Todo = todo
-            console.log(state.Todo);
         },
         SWAP_TODO: (state, id) => {
             let todoID = state.Todo.findIndex(e => e.id == id)
@@ -25,7 +24,6 @@ export default new Vuex.Store ({
         },
         SUPR_TODO: (state, id) => {
             let todoSupr = state.Todo.findIndex(e => e.id == id)
-            console.log(todoSupr);
             state.Todo.splice(todoSupr,1)
         }
 
