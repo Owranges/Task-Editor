@@ -33,14 +33,12 @@ export default new Vuex.Store ({
             context.commit('ALL_TODO', todo)
         },
         Swap (context, id) {
-            console.log(id);
             context.commit('SWAP_TODO', id)
         },
         Post(context, newTask) {
             context.commit('ADD_TASK', newTask)
         },
         Supr(context, id) {
-            console.log(id);
             context.commit('SUPR_TODO', id)
         }
     },
@@ -50,9 +48,9 @@ export default new Vuex.Store ({
                 return state.Todo.filter(e => e.todo == false)
             }else if(whatToDisplay == 'todo'){
                 return state.Todo.filter(e => e.todo == true)
-            }else
+            }else{
             return state.Todo
-            
+            }
         }
 
     },

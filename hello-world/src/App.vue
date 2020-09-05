@@ -10,6 +10,11 @@ import MyJumbotron from "./components/MyJumbotron.vue";
 
 export default {
   name: "App",
+  data()  {
+    return {
+
+    }
+  },
   components: {
     MyJumbotron
   },
@@ -19,6 +24,7 @@ export default {
   methods: {
      async getForStore()  {
         let todo =  await this.axios.get("http://localhost:8081/todo")
+        console.log(todo);
         this.$store.dispatch("Add", todo.data)
      },
     test3: function(id) {

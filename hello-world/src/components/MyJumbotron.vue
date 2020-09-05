@@ -1,33 +1,14 @@
 <template>
 <div>
-         <MyHeader />
-    <b-jumbotron>
-          <template v-slot:header>Todo List</template>
-    <template v-slot:lead>
-      New Features we will have to done for this project
-    </template>
-    <hr class="my-4">
-    <p>
-      Easy to use, we created this web app just for you
-    </p>
-     <router-view :key="$route.path"/>
-     <!-- <Sentence :list='list'/>
-
-    <ListTodo :count='list' v-on:changeicon ='test2'/>
+    <MyHeader />
     
-    <AddForm v-on:mdr='task' /> -->
-
-    <!-- <b-button variant="primary" href="#">Do Something</b-button>
-    <b-button variant="success" href="#">Do Something Else</b-button> -->
-  </b-jumbotron>
+    <router-view :key="$route.path"/>
 </div>
 </template>
 
 <script>
 import MyHeader from "./MyHeader.vue"
-// import ListTodo from "./ListTodo.vue";
-// import AddForm from "./AddForm.vue";
-// import Sentence from "./Sentence.vue";
+
 
 export default {
   name: "MyJumbotron",
@@ -51,8 +32,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
+div{
+  background-image: url("../assets/workspace.jpg");
+  height: 100vh;
+}
+h1 {
   margin: 40px 0 0;
+  font-size: 2em;
+  width: 20%;
+  
 }
 ul {
   list-style-type: none;

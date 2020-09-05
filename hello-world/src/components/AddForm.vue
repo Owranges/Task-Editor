@@ -1,15 +1,21 @@
 <template>
- <b-form inline class="mar">
-   <b-input-group prepend="New Task" class="mb-2 mr-sm-2 mb-sm-0 "/>
-    <b-input
-      id='inline-form-input'
-      class="w-30"
+ <form @submit.prevent="onSubmit" class="forForm">
+   <h2>"ONCE U SEE RESULTS, IT BECOMES AN ADDICTION"</h2>
+   <p>New Task </p>
+    <input
       v-model="champ"
       type="text"
-      placeholder="Todo Name"
+      placeholder="Enter a New Task"
       v-on:keyup="keymonitor"
-    /><b-button v-on:click="fetchData">Add </b-button>
- </b-form>
+    />
+    <input
+      v-model="newauthor"
+      type="text"
+      placeholder="Enter an Author Name"
+      v-on:keyup="keymonitor"
+    />
+    <b-button v-on:click="keymonitor">ADD</b-button>
+ </form>
   
 </template>
 
@@ -20,28 +26,38 @@ export default {
   data() {
     return {
       champ: "",
+      newauthor:"",
     };
   },
   methods: {
     fetchData() {
       console.log(this.champ);
-      if(this.champ.length == ""){
-        window.alert('Please enter a task')
-      }else {
+      if(this.champ.length == "" && this.newauthor.length == "" ){
+        window.alert('Please enter a Task and an Author')
+      }else if (this.newauthor.length == ""){
+        window.alert('Please enter an Author')
+      }else if (this.champ.length == ""){
+        window.alert('Please enter an Task')
+      }
+      else {
         let todoPost = {
           name: this.champ,
           id: Date.now(),
           createdAt : String(new Date),
-          todo: true
+          todo: true,
+          author: this.newauthor
         }
         console.log(todoPost);
         this.axios.post('http://localhost:8081/todo',  todoPost)
         .then(() => {
-          this.$store.dispatch('Post', todoPost)
+          return this.$store.dispatch('Post', todoPost)
+          
           } 
-        )
-        .catch();
+        ).catch(err => {
+          console.log(err);
+        });
         this.champ = "";
+        this.newauthor = "";
       }
     },
     keymonitor: function(event) {
@@ -49,13 +65,41 @@ export default {
       event.preventDefault()
       if (event.key == "Enter") {
         this.fetchData(event);
-      }
+      }else if(event.key == onclick) 
+        this.fetchData()
+    },
+    onSubmit: function(event) {
+      event.preventDefault()
     }
   }
 }
 </script>
 
 <style >
+.forForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+p{
+  margin-top: 10%;
+  font-size: 1.5em;
+  color: whitesmoke;
+}
+h2{
+  margin-top: 5%;
+  width: 60%;
+  font-size : 2.5em;
+  color: whitesmoke;
+}
+input{
+  margin-bottom: 2%;
+  border: solid 2px rgba(39, 139, 39, 0.424);
+  /* border-radius: 10px; */
+  outline: none;
+}
 .mar{
   margin-left : 37.5% ;
 }

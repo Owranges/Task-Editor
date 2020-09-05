@@ -51,3 +51,13 @@ export default {
   
 };
 </script>
+
+<style>
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%;
+  align-items: center;
+  justify-content: center;
+}
+</style>

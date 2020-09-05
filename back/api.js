@@ -27,13 +27,14 @@ const newTodo = new Schema ({
     name: String,
     id: Number,
     createdAt: String,
-    todo: Boolean   
+    todo: Boolean,
+    author : String
 });
 
 let ListTodo = mongoose.model('ListTodo', newTodo);
 
 app.post("/todo", (req,res) => {
-    let todoSave = new ListTodo ({name : req.body.name, id: req.body.id, createdAt: req.body.createdAt, todo: req.body.todo});
+    let todoSave = new ListTodo ({name : req.body.name, id: req.body.id, createdAt: req.body.createdAt, todo: req.body.todo, author: req.body.author});
     todoSave.save()
     res.send('is ok')
 })

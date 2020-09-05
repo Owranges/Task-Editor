@@ -8,6 +8,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
 
+import 'normalize-css';
+
+
 import AddForm from "./components/AddForm.vue";
 import ListTodo from "./components/ListTodo.vue";
 import store from './store'

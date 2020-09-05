@@ -33,7 +33,9 @@ export default {
 }
 header{
   background-color: teal;
-  
+  opacity: 0.5;
   color : whitesmoke;
+}header:hover{
+  opacity: 1;
 }
 </style>
