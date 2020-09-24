@@ -16,7 +16,7 @@ import ListTodo from "./components/ListTodo.vue";
 import store from './store'
 
 const routes = [
-   { path: '/new', component: AddForm },
+   { path: '/', component: AddForm },
    { path: '/list', component: ListTodo, props: {whatToDisplay: "all"}},
    { path: '/done', component: ListTodo, props: {whatToDisplay: "done"}},
    { path: '/todo', component: ListTodo, props: {whatToDisplay: "todo"}}

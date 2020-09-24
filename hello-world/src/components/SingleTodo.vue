@@ -34,7 +34,9 @@ export default {
 <style>
  .nopoint{
    list-style: none;
-   width: 20%;
+   max-width: 20%;
+   min-width: 20%;
+   
    height: auto;
    padding-bottom: 1%;
    background: rgba(54, 65, 77, 0.95);
@@ -52,9 +54,9 @@ export default {
  .teston {
    text-decoration: line-through;
  }.forhr{
-   margin-top: 5%;
-   padding: 5%;
-   margin-bottom: 5%;
+   margin-top: 1%;
+   padding: 1%;
+   margin-bottom: 1%;
    
    background-color : red;
    border: 0;

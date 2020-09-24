@@ -1,8 +1,8 @@
 <template>
 <header>
   <nav class="center">
-    <h1 class="header">ToDo List</h1>
-    <router-link class="alink" to="/new">Home</router-link>
+    <h1 class="header">Task Editor</h1>
+    <router-link class="alink" to="/">Home</router-link>
     <router-link class="alink" to="/list">List</router-link>
     <router-link class="alink" to="/done">Done</router-link>
     <router-link class="alink" to="/todo">Todo</router-link>
